@@ -17,8 +17,12 @@ namespace Porter_HelloWorld
             Console.WriteLine("num1 + num2 = ", num1 + num2);
             //multiplys two integer numbers and prints the product 
             Console.WriteLine("num1 * num2 = ",num1 * num2);
-            
-            
+            int num3 = 50; 
+            for(int i = 0; i < num3; i++)
+            {
+                Console.WriteLine("count = ", i);
+            }
+               
         }
     }
 }
