@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Porter PE-4 Flow Control", "Porter PE-4 Flow Control.csproj", "{FFFC5908-CB78-4DA1-A503-971EF2C7E520}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFFC5908-CB78-4DA1-A503-971EF2C7E520}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFFC5908-CB78-4DA1-A503-971EF2C7E520}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFFC5908-CB78-4DA1-A503-971EF2C7E520}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFFC5908-CB78-4DA1-A503-971EF2C7E520}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4722CC5C-2A79-4988-8392-E7FE147A3F8F}
+	EndGlobalSection
+EndGlobal
