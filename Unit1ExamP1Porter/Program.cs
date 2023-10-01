@@ -1,19 +1,21 @@
-﻿using System;
+﻿//Laila Porteer Exam 1, question1 10/1/23
+//Create a console application that enhances the attached "Math Quiz Application"
+//to include division.  Note that you will have to replace the int variables with
+//doubles and you should round the quotient to 2 decimal places and indicate that the
+//user should enter their answer to 2 decimal places.  (dAnswer = Math.Round(dAnswer,2))
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace MathQuiz
 {
     static class Program
     {
-        static Timer timeOver;
-        static bool bTimeOut;
         static void Main()
         {
-            
             // store user name
             string myName = "";
 
@@ -23,10 +25,12 @@ namespace MathQuiz
 
             // string and base value related to difficulty
             string sDifficulty = "";
-            int nMaxRange = 0;
+            // double for division
+            double nMaxRange = 0.0;
 
             // constant for setting difficulty with 1 variable
-            const int MAX_BASE = 10;
+            // double for divison 
+            const double MAX_BASE = 10.0;
 
             // question and # correct counters
             int nCntr = 0;
@@ -36,9 +40,10 @@ namespace MathQuiz
             int nOp = 0;
 
             // operands and solution
-            int val1 = 0;
-            int val2 = 0;
-            int nAnswer = 0;
+            //change val1, val2, and answer to doubles so they work w division
+            double val1 = 0.0;
+            double val2 = 0.0;
+            double dAnswer = 0.0;
 
             // string and int for the response
             string sResponse = "";
@@ -57,22 +62,18 @@ namespace MathQuiz
 
             Console.WriteLine("Math Quiz!");
             Console.WriteLine();
-            while (!bTimeOut)
+
+            // fetch the user's name into myName
+            while (true)
             {
+                Console.Write("What is your name-> ");
+                myName = Console.ReadLine();
 
-
-                // fetch the user's name into myName
-                while (true)
+                int len = myName.Length;
+                //if( !len )
+                if (myName.Length > 0)
                 {
-                    Console.Write("What is your name-> ");
-                    myName = Console.ReadLine();
-
-                    int len = myName.Length;
-                    //if( !len )
-                    if (myName.Length > 0)
-                    {
-                        break;
-                    }
+                    break;
                 }
             }
 
@@ -116,7 +117,7 @@ namespace MathQuiz
                 case "easy":
                     nMaxRange = MAX_BASE;
 
-                    if (myName.ToLower() == "david")
+                    if (myName.ToLower() == "laila")
                     {
                         goto case "hard";
                     }
@@ -124,11 +125,11 @@ namespace MathQuiz
 
                 case "medium":
                 case "med":
-                    nMaxRange = MAX_BASE * 2;
+                    nMaxRange = MAX_BASE * 2.0;
                     break;
 
                 case "hard":
-                    nMaxRange = MAX_BASE * 3;
+                    nMaxRange = MAX_BASE * 3.0;
                     break;
             }
 
@@ -137,9 +138,11 @@ namespace MathQuiz
             {
                 // generate a random number between 0 inclusive and 3 exclusive to get the operation
                 nOp = rand.Next(0, 3);
-
-                val1 = rand.Next(0, nMaxRange) + nMaxRange;
-                val2 = rand.Next(0, nMaxRange);
+                //needs to be double for division 
+                //rand.NextDouble only allows for a range of 0.0-1.0 so multiply nMaxRange, then add nMaxRange to get the correct value
+                //https://stackoverflow.com/questions/1064901/random-number-between-2-double-numbers
+                val1 = (rand.NextDouble() * nMaxRange) + nMaxRange; 
+                val2 = rand.NextDouble() * nMaxRange;
 
                 // if either argument is 0, pick new numbers
                 if (val1 == 0 || val2 == 0)
@@ -153,19 +156,28 @@ namespace MathQuiz
                 // else multiplication
                 if (nOp == 0)
                 {
-                    nAnswer = val1 + val2;
+                    dAnswer = val1 + val2;
+                    dAnswer = Math.Round(dAnswer, 2); 
                     sQuestions = $"Question #{nCntr + 1}: {val1} + {val2} => ";
                 }
                 else if (nOp == 1)
                 {
-                    nAnswer = val1 - val2;
+                    dAnswer = val1 - val2;
+                    dAnswer = Math.Round(dAnswer, 2);
                     sQuestions = $"Question #{nCntr + 1}: {val1} - {val2} => ";
 
                 }
-                else
+                else if (nOp == 2)
                 {
-                    nAnswer = val1 * val2;
+                    dAnswer = val1 * val2;
+                    dAnswer = Math.Round(dAnswer, 2);
                     sQuestions = $"Question #{nCntr + 1}: {val1} * {val2} => ";
+                }
+                else 
+                {
+                    dAnswer = val1 / val2;
+                    dAnswer = Math.Round(dAnswer, 2);
+                    sQuestions = $"Question #{nCntr + 1}: {val1} / {val2} => ";
                 }
 
                 bValid = false;
@@ -190,7 +202,7 @@ namespace MathQuiz
 
                 // if response == answer, output flashy reward and increment # correct
                 // else output stark answer
-                if (nResponse == nAnswer)
+                if (nResponse == dAnswer)
                 {
                     Console.BackgroundColor = ConsoleColor.Blue;
                     Console.ForegroundColor = ConsoleColor.Magenta;
@@ -201,7 +213,7 @@ namespace MathQuiz
                 {
                     Console.BackgroundColor = ConsoleColor.Black;
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("I'm sorry {0}, the answer is {1}", myName, nAnswer);
+                    Console.WriteLine("I'm sorry {0}, the answer is {1}", myName, dAnswer);
                 }
 
                 // restore the screen colors
