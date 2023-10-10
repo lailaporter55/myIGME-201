@@ -1,5 +1,6 @@
 ﻿//Laila Porter 10/1/23
 //Q14 Debugging 
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,7 +46,8 @@ namespace UT1_BugSquash
         //}
 
 
-        int Power(int nBase, int nExponent)
+        //int Power(int nBase, int nExponent) compile-error function needs to be static 
+        static int Power(int nBase,  int nExponent)
         {
             int returnVal = 0;
             int nextVal = 0;
