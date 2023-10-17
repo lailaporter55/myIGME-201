@@ -1,0 +1,6 @@
+//{type:class}
+//{generate:true}
+//{direction:topDown}
+[+MyClass | GetString():s]
+[+MyDerivedClass| Main()]
+[+MyClass]^[+MyDerivedClass]
