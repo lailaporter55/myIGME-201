@@ -6,9 +6,10 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
+// GRADE: 90/100
 namespace PetApp
 {
-    public class Pets
+    public class Pets // 5/5
     {
         public List<Pet> petList = new List<Pet>();
 
@@ -43,7 +44,7 @@ namespace PetApp
                 }
             }
         }
-    public int Count
+    public int Count // 5/5
         {
             get { return petList.Count;}
         }
@@ -62,14 +63,14 @@ namespace PetApp
         
 
     } 
-    public interface ICat
+    public interface ICat // 5/5
     {
         void Eat();
         void Play();
         void Scratch();
         void Purr(); 
     }
-    public abstract class Pet
+    public abstract class Pet // 5/5
     {
         private string name;
         public int age;
@@ -95,7 +96,7 @@ namespace PetApp
         public abstract void GotoVet();
 
     }
-    public interface IDog
+    public interface IDog // 5/5
     {
         void Eat();
         void Play();
@@ -103,7 +104,7 @@ namespace PetApp
         void NeedWalk();
         void GotoVet(); 
     }
-    public class Cat : Pet, ICat
+    public class Cat : Pet, ICat // 5/5
     {
         public Cat(string name, int age)
         {
@@ -111,37 +112,37 @@ namespace PetApp
             this.age = age;
         }
 
-        public override void Eat()
+        public override void Eat() // 5/5
         {
             Console.WriteLine("{0} eats a lot of food, their favorite is lasagna!", this.Name);
             throw new NotImplementedException();
         }
 
-        public override void GotoVet()
+        public override void GotoVet() // 5/5
         {
             Console.WriteLine("{0} hates going to the vet!", this.Name);
             throw new NotImplementedException();
         }
 
-        public override void Play()
+        public override void Play() // 5/5
         {
             Console.WriteLine("{0} plays with the cardboard box! {0} has a lot of other toys but their favorite is the box.", this.Name);
             throw new NotImplementedException();
         }
 
-        public void Purr()
+        public void Purr() // 5/5
         {
             Console.WriteLine("{0} purrs a lot, this is a very happy cat.", this.Name);
             throw new NotImplementedException();
         }
 
-        public void Scratch()
+        public void Scratch() // 5/5
         {
             Console.WriteLine("{0} scratches when they have to go to the vet!!", this.Name);
             throw new NotImplementedException();
         }
     }
-    public class Dog : Pet, IDog
+    public class Dog : Pet, IDog // 5/5
     {
         public Dog(string sName, string sLicense, int age)
         {
@@ -253,6 +254,8 @@ namespace PetApp
                     }
                     //else if a valid pet was returned, set interface variable to thisPet based of thisPet.GetType()
                     //and randomly call one of the member methods of the interface
+
+                    // - 5 points did not add cases
                     else
                     {
                         if(thisPet.GetType() == typeof(Cat))
