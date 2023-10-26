@@ -14,7 +14,12 @@ namespace UT2Q4
         public string address; 
         public string PhoneNumber()
         {
-            return this.phoneNumber;
+            get{
+                return this.phoneNumber;
+            }
+            set{
+                this.phoneNumber = value; 
+            }
         }
         public abstract void Connect();
         public abstract void Disconnect();
@@ -103,7 +108,7 @@ namespace UT2Q4
                 return this.femaleSideKick;
             }
         }
-        public void TumeTravel()
+        public void TimeTravel()
         {
 
         }

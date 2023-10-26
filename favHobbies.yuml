@@ -1,0 +1,15 @@
+// {type:class}
+// {generate:true}
+// {direction:topDown}
+
+//hobby: dancing 
+[+IDanceInterface|Turn(); Balance(); Jump()] 
+[+ADance|-shoeType:string; +blisters:int;| +ShoeType(); +GoToClass():a; +LeaveClass()]
+[+Ballet||+name:string; -creditCardNumber:int; +creditCardNumber:int:w +Turn():v; +Balance():v; +Jump():v; ]
+[+A:HotDrink|+instant:bool;+milk:bool;-byte:sugar;+brand:string; +size:string; +customer:Customer;| +HotDrink(); +HotDrink(brand:string):string; +AddSugar(amount:byte):v; +Steam():a]
+[+CupOfCoffee|+beanType:string;|+CupOfCoffee();+CupOfCoffee(brand:string):base(brand); +Steam():o;]
+
+
+// CONNECTIONS
+[+ICustomer] ^ [+Customer]
+[+A:HotDrink] <-.- [+CupOfCoffee]
