@@ -152,7 +152,7 @@ namespace UT2Q4
 
             }
         }
-        static CodeIdentifier UsePhone(object obj)
+        static void UsePhone(object obj)
         {
             PhoneInterface phone = new PhoneInterface();
             if (obj is Tardis tardis)
