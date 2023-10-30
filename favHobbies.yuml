@@ -3,13 +3,13 @@
 // {direction:topDown}
 
 //hobby: dancing 
-[+IDanceInterface|Turn(); Balance(); Jump()] 
-[+ADance|-shoeType:string; +blisters:int;| +ShoeType(); +GoToClass():a; +LeaveClass()]
-[+Ballet||+name:string; -creditCardNumber:int; +creditCardNumber:int:w +Turn():v; +Balance():v; +Jump():v; ]
-[+A:HotDrink|+instant:bool;+milk:bool;-byte:sugar;+brand:string; +size:string; +customer:Customer;| +HotDrink(); +HotDrink(brand:string):string; +AddSugar(amount:byte):v; +Steam():a]
-[+CupOfCoffee|+beanType:string;|+CupOfCoffee();+CupOfCoffee(brand:string):base(brand); +Steam():o;]
-
+[+I:IDance|Turn(); Balance(); Jump()] 
+[+A:Dance|-shoeType:string; +musicType:string;| +WhatShoeType(type: string):v; +GoToClass():a; +LeaveClass():a]
+[+Ballet||+name:string; +blisters:int; -pirouettes:int; +pirouettes:int:w +Turn(); +Balance(); +Jump(); +WhatShoeType(type :string):o]
+[+Tap|+name:string; +taps:int; -heelOrToe:bool| +HeelOrToe():r; +Balance(); +Jump(); +WhatShoeType(type :string):o ]
 
 // CONNECTIONS
-[+ICustomer] ^ [+Customer]
-[+A:HotDrink] <-.- [+CupOfCoffee]
+[+I:IDance] ^ [+Ballet]
+[+I:IDance] ^ [+Tap]
+[+A:Dance] <-.- [+Ballet]
+[+A:Dance] <-.- [+Tap]
