@@ -159,11 +159,13 @@ namespace UT2Q4
             {
                 tardis.MakeCall(); 
                 tardis.HangUp();
+                tardis.TimeTravel();
             }
             if (obj is PhoneBooth booth)
             {
                 booth.MakeCall();
                 booth.HangUp();
+                booth.OpenDoor();
             }
 
         }
