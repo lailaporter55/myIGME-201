@@ -98,7 +98,26 @@ namespace UT2Q4
         {
             get
             {
-                return this.whichDrWho;
+                if(this == 10)
+                {
+                    return this.whichDrWho;
+                }
+                else if(this != 11)
+                {
+                    return this.sonicScrewdriver;
+                }
+                else if(this < 10)
+                {
+                    return this.exteriorSurface;
+                }
+                else if(this > 10)
+                {
+                    return this.interiorVolume;
+                }
+                else
+                {
+                    return femaleSideKick;
+                }
             }
         }
         public string FemaleSideKick
