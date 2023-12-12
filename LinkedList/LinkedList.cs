@@ -297,7 +297,20 @@ namespace LinkedList
             string[] s = null;
 
             // 2. Your code here
-
+            s = {"The Spain in rain falls plain on the mainly"};
+            foreach(string word in s)
+            {
+                linkedList.AddLast(word); 
+            }
+            LinkedListNode<string> spain = linkedList.Find("Spain");
+            LinkedListNode<string> plain = linkedList.Find("plain");
+            LinkedListNode<string> mainly = linkedList.Find("mainly");
+            LinkedListNode<string> rain = linkedList.Find("rain");
+            linkedList.Remove(rain);
+            if(spain != null)
+            {
+                linkedList.AddBefore(spain, "rain");
+            }
 
             // 3. manipulate the list using Find(), Remove(), AddBefore() and/or AddAfter() to result in
             // "The rain in Spain falls mainly on the plain"
@@ -325,6 +338,14 @@ namespace LinkedList
 
             // Your code here
 
+            LinkedListNode<string> d = linkedList.Find("D");
+            LinkedListNode<string> i = linkedList.Find("I");
+            LinkedListNode<string> r = linkedList.Find("R");
+            LinkedListNode<string> o = linkedList.Find("O");
+            anagram.Remove(o);
+            anagram.AddAfter(d, "I")
+            anagram.AddAfter(i, "R");
+            anagram.AddAfter(r, "T")
             // then call the visualizer
             VisualizeLinkedList visualizeLinkedList = new VisualizeLinkedList(anagram);
         }
