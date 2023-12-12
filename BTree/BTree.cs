@@ -258,6 +258,43 @@ namespace BTree
             BTree root = null;
 
             // Your code here
+            node = new BTree("M", null);
+            root = node;
+
+            node = new BTree("F", root, false);
+            node = new BTree("C", root, false);
+            node = new BTree("B", root, false);
+            node = new BTree("A", root, false);
+            node = new BTree("E", root, false);
+            node = new BTree("D", root, false);
+
+            node = new BTree("J", root, false);
+            node = new BTree("I", root, false);
+            node = new BTree("H", root, false);
+            node = new BTree("G", root, false);
+            node = new BTree("L", root, false);
+            node = new BTree("K", root, false);
+
+            node = new BTree("P", root, false);
+            node = new BTree("O", root, false);
+            node = new BTree("N", root, false);
+            node = new BTree("T", root, false);
+            node = new BTree("S", root, false);
+            node = new BTree("R", root, false);
+            node = new BTree("Q", root, false);
+
+            node = new BTree("W", root, false);
+            node = new BTree("V", root, false);
+            node = new BTree("U", root, false);
+            node = new BTree("X", root, false);
+            node = new BTree("Y", root, false);
+            node = new BTree("Z", root, false);
+
+            string[] randomWords = { "CAMEL", "LIMA BEAN", "POOKIE", "HEDGEHOG", "BOOK", "RECTANGLE", "SHOP", "COFFEE", "WESTERN", "CLOCK", "NECKLACE", "PINEAPPLE", "CONQUEST", "CELSIUS", "HEART" }.
+            for (int i = 0; i < randomWords.Length; ++i)
+            {
+                node = new BTree(randomWords[random.Next(0, randomWords.Length)], root);
+            }
 
 
             this.richTextBox.Text += "\n";
@@ -287,7 +324,52 @@ namespace BTree
             BTree root = null;
 
             // Your code here
+            node = new BTree("M", null);
+            root = node;
 
+            node = new BTree("F", root, false);
+            node = new BTree("C", root, false);
+            node = new BTree("B", root, false);
+            node = new BTree("A", root, false);
+            node = new BTree("E", root, false);
+            node = new BTree("D", root, false);
+
+            node = new BTree("J", root, false);
+            node = new BTree("I", root, false);
+            node = new BTree("H", root, false);
+            node = new BTree("G", root, false);
+            node = new BTree("L", root, false);
+            node = new BTree("K", root, false);
+
+            node = new BTree("P", root, false);
+            node = new BTree("O", root, false);
+            node = new BTree("N", root, false);
+            node = new BTree("T", root, false);
+            node = new BTree("S", root, false);
+            node = new BTree("R", root, false);
+            node = new BTree("Q", root, false);
+
+            node = new BTree("W", root, false);
+            node = new BTree("V", root, false);
+            node = new BTree("U", root, false);
+            node = new BTree("X", root, false);
+            node = new BTree("Y", root, false);
+            node = new BTree("Z", root, false);
+
+            nodeToDelete = new BTree("C", null);
+            BTree.DeleteNode(nodeToDelete, root);
+            this.richTextBox.Text += "\n";
+            BTree.TraverseAscending(root);
+
+            nodeToDelete = new BTree("I", null);
+            BTree.DeleteNode(nodeToDelete, root);
+            this.richTextBox.Text += "\n";
+            BTree.TraverseAscending(root);
+
+            nodeToDelete = new BTree("A", null);
+            BTree.DeleteNode(nodeToDelete, root);
+            this.richTextBox.Text += "\n";
+            BTree.TraverseAscending(root);
 
             this.richTextBox.Text += "\n";
             BTree.TraverseAscending(root);
@@ -314,7 +396,56 @@ namespace BTree
             Person person = null;
 
             // Your code here
+            person = new Person("laila", 20); //me
+            node = new BTree(person, root, null);
+            root = node; 
 
+            person = new Person("susan", 54); //mom
+            node = new BTree(person, root, false);
+
+            person = new Person("steven", 55); //dad
+            node = new BTree(person, root, false);
+
+            person = new Person("michael", 18); //brother
+            node = new BTree(person, root, false);
+
+            person = new Person("nina", 16); //sister
+            node = new BTree(person, root, false);
+
+            person = new Person("lily", 80); //grandma 
+            node = new BTree(person, root, false);
+
+            person = new Person("lewis", 82); //grandpa
+            node = new BTree(person, root, false);
+
+            person = new Person("jean", 82); //grandma
+            node = new BTree(person, root, false);
+
+            person = new Person("andy", 85); //grandpa
+            node = new BTree(person, root, false);
+
+            person = new Person("carson", 20); //cousin
+            node = new BTree(person, root, false);
+
+            person = new Person("sophia", 18); //cousin
+            node = new BTree(person, root, false);
+
+            person = new Person("suzie", 50); //aunt
+            node = new BTree(person, root, false);
+
+            person = new Person("jason", 47); //uncle
+            node = new BTree(person, root, false);
+
+            person = new Person("kaylie", 20); //cousin
+            node = new BTree(person, root, false);
+
+            person = new Person("chris", 19); //cousin
+            node = new BTree(person, root, false);
+
+            if(person.data.GetType() == typeof(Person))
+            {
+
+            }
 
             this.richTextBox.Text += "\n";
             BTree.TraverseAscending(root);
@@ -337,6 +468,52 @@ namespace BTree
             Person person = null;
 
             // Your code here
+            person = new Person("laila", 20); //me
+            node = new BTree(person, root, null);
+            root = node;
+
+            person = new Person("susan", 54); //mom
+            node = new BTree(person, root, false);
+
+            person = new Person("steven", 55); //dad
+            node = new BTree(person, root, false);
+
+            person = new Person("michael", 18); //brother
+            node = new BTree(person, root, false);
+
+            person = new Person("nina", 16); //sister
+            node = new BTree(person, root, false);
+
+            person = new Person("lily", 80); //grandma 
+            node = new BTree(person, root, false);
+
+            person = new Person("lewis", 82); //grandpa
+            node = new BTree(person, root, false);
+
+            person = new Person("jean", 82); //grandma
+            node = new BTree(person, root, false);
+
+            person = new Person("andy", 85); //grandpa
+            node = new BTree(person, root, false);
+
+            person = new Person("carson", 20); //cousin
+            node = new BTree(person, root, false);
+
+            person = new Person("sophia", 18); //cousin
+            node = new BTree(person, root, false);
+
+            person = new Person("suzie", 50); //aunt
+            node = new BTree(person, root, false);
+
+            person = new Person("jason", 47); //uncle
+            node = new BTree(person, root, false);
+
+            person = new Person("kaylie", 20); //cousin
+            node = new BTree(person, root, false);
+
+            person = new Person("chris", 19); //cousin
+            node = new BTree(person, root, false);
+
 
 
             this.richTextBox.Text += "\n";
