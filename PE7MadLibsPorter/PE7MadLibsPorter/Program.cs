@@ -30,7 +30,7 @@ namespace PE7MadLibsPorter
                     string finalStory = "";
 
                     StreamReader input;
-                    input = new StreamReader("C:\Users\Laila Porter\OneDrive - rit.edu\Desktop\IGME 201\myIGME-201\PE7MadLibsPorter\files\MadLibsTemplate.txt");
+                    input = new StreamReader("c:\\Desktop\\IGME201\\PE-7 - Mad Libs attached files Sep 17, 2023\\MadLibsTemplate.txt");
 
                     string line = null;
                     while ((line = input.ReadLine()) != null)
@@ -41,7 +41,7 @@ namespace PE7MadLibsPorter
 
                     madLibs = new string[numLibs];
 
-                    input = new StreamReader("C:\Users\Laila Porter\OneDrive - rit.edu\Desktop\IGME 201\myIGME-201\PE7MadLibsPorter\files\MadLibsTemplate.txt");
+                    input = new StreamReader("c:\\Desktop\\IGME201\\PE-7 - Mad Libs attached files Sep 17, 2023\\MadLibsTemplate.txt");
                     line = null;
                     while ((line = input.ReadLine()) != null)
                     {
@@ -68,18 +68,11 @@ namespace PE7MadLibsPorter
                         Console.WriteLine("unable to parse");
                     }
                     string emptyMadLib = madLibs[nChoice];
-                    string[] words = emptyMadLib.Split(" ");
-
-                    string sPrompt = "";
-                    //create variables to store prompts and response that can be used again 
-                    string sPrevPrompt = "";
-                    string sPrevResponse = "";
-                    //a variable to store the users response
-                    string sResponse = ""; 
+                    string[] words = emptyMadLib.Split();
                     foreach (string word in words)
                     {
                         //if word is \n
-                        if (word == '\n')
+                        if (word[0] == '\n')
                         {
                             finalStory += word;
 
@@ -87,23 +80,9 @@ namespace PE7MadLibsPorter
                         //if word is a prompt
                         if (word[0] == '{')
                         {
-                            sPrompt = word.Replace("{", "").Replace("}", "").Replace("_", " ");
-                            //if the prompt = a previous promt add the stored response to the story 
-                            if(sPrompt == sPrevPrompt)
-                            {
-                                finalStory += sPrevResponse; 
-                            }
-                            //if the prompt has not been used yet store that prompt and response into the variables
-                            else
-                            {
-                                // prompt the user for the replacement
-                                Console.Write("Input a {0}: ", sPrompt);
-                                sResponse = Console.ReadLine();
-                                finalStory += sResponse;
-                                sPrevResponse = sResponse;
-                                sPrevPrompt = sPrompt;
-                            }
-                            
+                            string replaceWord = word.Replace("{", "").Replace("}", "").Replace("_", " ");
+                            // prompt the user for the replacement
+                            Console.Write("Input a {0}: ", replaceWord);
                             // and append the user response to the result string
                             finalStory += Console.ReadLine();
                         }
