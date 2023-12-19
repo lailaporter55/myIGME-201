@@ -78,6 +78,71 @@ namespace MyStack
 
             }
         }
+
+        class MyQueue
+        {
+            private List<int> queue = new List<int>();
+            public MyQueue(List<int> queue)
+            {
+                this.queue = queue;
+            }
+
+            //enqueue: add new data to the back of the queue
+            public void Enqueue(int n)
+            {
+                queue.Add(n);
+            }
+            //dequeue: remove & return the data in the front of the queue
+            public int Dequeue()
+            {
+                
+                if (queue.Count != 0)
+                {
+                    int n = queue[0];
+                    queue.RemoveAt(0);
+                    return n;
+                }
+                //check if queue is empty
+                else
+                {
+                    Console.WriteLine("Queue is empty");
+                    return 0;
+                }
+            }
+            //peek: look at the front of the queue, return the data, DONT remove it
+            public int Peek()
+            {
+                //return the first element
+                if(queue.Count != 0)
+                {
+                    return (queue[0]);
+                }
+                else 
+                { 
+                    Console.WriteLine("Queue is empty");
+                    return 0; 
+                }
+            }
+            static void Main(string[] args)
+            {
+                List<int> queueList = new List<int>();
+                MyQueue queue = new MyQueue(queueList);
+                Console.WriteLine("Queue before", queue);
+                //testing enqueue
+                queue.Enqueue(5);
+                queue.Enqueue(4);
+                queue.Enqueue(3);
+                queue.Enqueue(2);
+                queue.Enqueue(1);
+                Console.WriteLine("Queue after enqueue", queue);
+                //testing dequeue
+                queue.Dequeue();
+                queue.Dequeue();
+                Console.WriteLine("Queue after dequeue", queue);
+                //testing peek
+                Console.WriteLine("Peeking into queue",queue.Peek());
+            }
+        }
         
     }
 }
