@@ -54,6 +54,9 @@ namespace AdjacencyMatrix
             int nState = 0; //red
             int nMoves = 0; //count how many moves till reach end
 
+            Thread t = new Thread(DFS);
+            t.Start();
+
             
 #if USE_MATRIX
                 if (mGraph[nState, nUserState])
@@ -87,7 +90,43 @@ namespace AdjacencyMatrix
             {
                 Console.WriteLine("That is an invalid move.");
             }
-#endif
+#endif      // A function used by DFS 
+            static void DFSUtil(int v, bool[] visited)
+            {
+                while (!bWaitingForMove) ;
+
+                // Mark the current node as visited 
+                // and print it 
+                visited[v] = true;
+
+                Console.Write(v + " ");
+
+                bWaitingForMove = false;
+
+                // Recur for all the vertices 
+                // adjacent to this vertex 
+                int[] thisStateList = lGraph[v];
+                foreach (int n in thisStateList)
+                {
+                    if (!visited[n])
+                    {
+                        DFSUtil(n, visited);
+                    }
+                }
+            }
+
+            // The function to do DFS traversal. 
+            // It uses recursive DFSUtil() 
+            static void DFS()
+            {
+                // Mark all the vertices as not visited 
+                // (set as false by default in c#) 
+                bool[] visited = new bool[lGraph.Length];
+
+                // Call the recursive helper function 
+                // to print DFS traversal 
+                DFSUtil(5, visited);
+            }
 
         }
 
