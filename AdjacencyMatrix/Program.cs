@@ -9,47 +9,6 @@ namespace AdjacencyMatrix
 {
     internal class Program
     {
-#if USE_MATRIX
-        static bool[,] mGraph = new bool[,]
-        {
-           { false   , true    , false   , false   , true    , false   , false   , false },
-           { false   , false   , false   , true    , false   , false   , false   , false },
-           { true    , false   , false   , false   , false   , false   , false   , false },
-           { false   , false   , false   , false   , false   , false   , false   , true },
-           { false   , false   , false   , false   , false   , false   , true    , false },
-           { false   , false   , false   , false   , false   , false   , false   , false },
-           { false   , false   , false   , false   , false   , false   , false   , true },
-           { false   , false   , false   , false   , false   , true    , false   , false }
-        };
-        static int[][] lGraph = new int[][]
-        {
-            new int[]{1,5},
-            new int[]{8},
-            new int[]{6},
-            null
-        };
-#else
-        static bool[,] mGraph = new bool[,]
-        {
-            { false   , true    , true    , false   , true    , false   , false   , false },
-           { true    , false   , false   , true    , false   , false   , false   , false },
-           { true    , false   , false   , false   , false   , false   , false   , false },
-           { false   , true    , false   , false   , false   , false   , false   , true  },
-           { true    , false   , false   , false   , false   , false   , true    , false },
-           { false   , false   , false   , false   , false   , false   , false   , true  },
-           { false   , false   , false   , false   , true    , false   , false   , true  },
-           { false   , false   , false   , true    , false   , true    , true    , false }
-        };
-        static int[][] lGraph = new int[][]
-        {
-            new int[]{1,5},
-            new int[]{0},
-            new int[]{1},
-            new int[]{1},
-            new int[]{1},
-            new int[]{6}
-        };
-#endif
         static List<Node> nodes = new List<Node>();
 
         static void Main(string[] args)
@@ -92,6 +51,43 @@ namespace AdjacencyMatrix
             nodes[6].AddEdge(1, nodes[4]);
             //connect yellow to green
             nodes[4].AddEdge(6, nodes[7]);
+            int nState = 0; //red
+            int nMoves = 0; //count how many moves till reach end
+
+            
+#if USE_MATRIX
+                if (mGraph[nState, nUserState])
+                {
+                    nState = nUserState;
+                    ++nMoves;
+                }
+                else
+                {
+                    Console.WriteLine("That is an invalid move.");
+                }
+#else
+            int[] thisStateList = lGraph[nState];
+            bool valid = false;
+
+            if (thisStateList != null)
+            {
+                foreach (int n in thisStateList)
+                {
+                    if (n == nUserState)
+                    {
+                        valid = true;
+                        nState = nUserState;
+                        ++nMoves;
+                        break;
+                    }
+                }
+            }
+
+            if (!valid)
+            {
+                Console.WriteLine("That is an invalid move.");
+            }
+#endif
 
         }
 
