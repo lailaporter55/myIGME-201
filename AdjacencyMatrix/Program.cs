@@ -58,7 +58,10 @@ namespace AdjacencyMatrix
             Thread t = new Thread(DFS);
             t.Start();
 
+            List<Node> shortestPath = GetShortestPathDijkstra();
             
+
+
 #if USE_MATRIX
                 if (mGraph[nState, nUserState])
                 {
@@ -171,12 +174,21 @@ namespace AdjacencyMatrix
                     }
 
                     node.visited = true;
-                    if (node == game[7]) //when green is found
-                    {
-                        return;
+                        if (node == game[7]) //when green is found
+                        {
+                            return;
+                        }
                     }
                 }
+            static private void BuildShortestPath(List<Node> nodes, Node node)
+            {
+                if(node.nearestToStart == null)
+                {
+                    return; 
                 }
+                nodes.Add(node.nearestToStart);
+                BuildShortestPath(List, node.nearestToStart); 
+            }
             }
         }
 
@@ -186,7 +198,7 @@ namespace AdjacencyMatrix
             public List<Edge> edges = new List<Edge>();
 
             public int minCostToStart;
-            public Node nearestTpStart;
+            public Node nearestToStart;
             public bool visited; 
 
             public Node(int nState)
