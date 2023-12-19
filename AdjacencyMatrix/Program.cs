@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -131,6 +132,52 @@ namespace AdjacencyMatrix
                 DFSUtil(0, visited);
             }
 
+            //Dijkstra's algorithm, checks for the shortest path from red to green
+            //checks all the edge values and compares them
+            //going from red to greem
+            static public List<Node> GetShortestPathDijksta()
+            {
+
+            }
+            static private void DijkstraSearch()
+            {
+                Node start = nodes[0]; 
+                start.minCostToStart = 0;
+                List<Node> priorityQ = new List<Node>();
+                priorityQ.Add(start);
+
+                do
+                {
+                    //sort priority queue by costs 
+                    priorityQ.Sort();
+                    Node node = priorityQ.First();
+                    foreach(Edge edge in node.edges)
+                    {
+                        Node childNode = edge.connectedNode;
+                        if (childNode.visited)
+                        {
+                            continue;
+                        }
+                        if (childNode.minCostToStart == int.MaxValue ||
+                        node.minCostToStart + cnn.cost < childNode.minCostToStart)
+                        {
+                            childNode.minCostToStart = node.minCostToStart + edge.cost;
+                            childNode.nearestToStart = node;
+                            if (!priorityQ.Contains(childNode))
+                            {
+                                priorityQ.Add(childNode);
+                            }
+                        }
+                    }
+
+                    node.visited = true;
+                    if (node == game[7]) //when green is found
+                    {
+                        return;
+                    }
+                }
+                }
+            }
         }
 
         public class Node : IComparable<Node>
