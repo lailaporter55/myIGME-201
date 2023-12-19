@@ -91,6 +91,7 @@ namespace AdjacencyMatrix
                 Console.WriteLine("That is an invalid move.");
             }
 #endif      // A function used by DFS 
+            //we are starting at the red dot adn its state is 0
             static void DFSUtil(int v, bool[] visited)
             {
                 while (!bWaitingForMove) ;
@@ -114,7 +115,9 @@ namespace AdjacencyMatrix
                     }
                 }
             }
-
+            
+            //DFS recursivly checks the point that its at to find the Node that its looking for,
+            //DFS goes deeper and deeper into the graph
             // The function to do DFS traversal. 
             // It uses recursive DFSUtil() 
             static void DFS()
@@ -125,7 +128,7 @@ namespace AdjacencyMatrix
 
                 // Call the recursive helper function 
                 // to print DFS traversal 
-                DFSUtil(5, visited);
+                DFSUtil(0, visited);
             }
 
         }
