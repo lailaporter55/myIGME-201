@@ -10,8 +10,9 @@ namespace Singleton
    
         public interface ILoader
         {
-            void LoadJSON(string json);
-            void ReadJSON(string[] jsonInfo); 
+
+            void LoadJSON(string json); //load the file
+            void ReadJSON(string[] jsonInfo);  //be able to get the info from the file
         }
     class Singleton : ILoader
     {
@@ -40,7 +41,7 @@ namespace Singleton
         private Player() { }
         public static Player Instance
         {
-            get 
+            get //add json data to the player
             {
                 if ((instance == null))
                 {
